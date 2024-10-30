@@ -30,9 +30,14 @@ public class ProductController {
         return productService.getProductsByCategory(ctg);
     }
 
-    @GetMapping("/price/{prc}")
+    @GetMapping("/price/less/{prc}")
     public List<Product> getProductsByPriceLessThan(@PathVariable double prc) {
         return productService.getProductsByPriceLessThan(prc);
+    }
+
+    @GetMapping("/price/more/{prc}")
+    public List<Product> getProductsByPriceMoreThan(@PathVariable double prc) {
+        return productService.getProductsByPriceMoreThan(prc);
     }
 
     @GetMapping("/findBy/{contain}")

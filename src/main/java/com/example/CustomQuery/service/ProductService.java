@@ -24,6 +24,9 @@ public class ProductService {
     public List<Product> getProductsByPriceLessThan(double price) {
         return productRepository.findByPriceLessThan(price);
     }
+    public List<Product> getProductsByPriceMoreThan(double price) {
+        return productRepository.findByPriceMoreThan(price);
+    }
 
     public Product saveProduct(Product product) {
         return productRepository.save(product);

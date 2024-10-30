@@ -18,6 +18,10 @@ public interface ProductRepository extends MongoRepository<Product, String> {
     @Query("{ 'price': { $lt: ?0 } }")
     List<Product> findByPriceLessThan(double price);
 
+    // Query Kustom untuk menemukan produk dengan harga di atas nilai tertentu
+    @Query("{ 'price': { $gt: ?0 } }")
+    List<Product> findByPriceMoreThan(double price);
+
     // Query Kustom untuk menemukan produk berdasarkan nama yang mengandung teks tertentu
     @Query("{ 'name': { $regex: ?0, $options: 'i' } }")
     List<Product> findByNameContaining(String name);
